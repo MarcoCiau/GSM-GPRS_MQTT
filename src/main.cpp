@@ -41,7 +41,7 @@
 
 
 // See all AT commands, if wanted
-#define DUMP_AT_COMMANDS
+// #define DUMP_AT_COMMANDS
 
 // Define the serial console for debug prints, if needed
 #define TINY_GSM_DEBUG SerialMon
@@ -70,15 +70,12 @@ const char wifiSSID[] = "YourSSID";
 const char wifiPass[] = "YourWiFiPass";
 
 // MQTT details
-// const char* broker = "m10.cloudmqtt.com";
-// const char* broker = "31.220.55.174";
 const char* broker = "broker.hivemq.com";
-const char* mqttUser = "egxudsep";
-const char* mqttPassword = "PwbOHGRpcYAa";
-// uint16_t brokerPort = 8883;
-// uint16_t brokerPort = 11490;
+const char* mqttUser = "";
+const char* mqttPassword = "";
 uint16_t brokerPort = 1883;
 
+/* MQTT Topics */
 const char* topicLed = "GsmClientTest/led";
 const char* topicInit = "GsmClientTest/init";
 const char* topicLedStatus = "GsmClientTest/ledStatus";
@@ -139,7 +136,7 @@ boolean mqttConnect() {
 
   // Or, if you want to authenticate MQTT:
   // boolean status = mqtt.connect("GsmClientName", mqttUser, mqttPassword);
-// 
+
   if (status == false) {
     SerialMon.println(" fail");
     return false;
